@@ -14,6 +14,8 @@ export const site = {
   owner: "Victoria Harris-Pelletier",
   phone: "(479) 633-1206",
   phoneHref: "tel:+14796331206",
+  /** WhatsApp contact option (client request) — same business/cell number */
+  whatsappHref: "https://wa.me/14796331206",
   email: "victoria@tsbaccountingsolutionsllc.com",
   address: {
     street: "1621 Harold King Ln",
@@ -36,9 +38,10 @@ export const site = {
   ],
   /** Schema.org openingHoursSpecification-compatible values */
   hoursSchema: ["Mo-Fr 08:00-17:00"],
-  /** EDITABLE: "10+ Years" stat badge — confirm with client */
-  yearsBadge: "10+ Years",
-  yearsBadgeLabel: "of financial expertise",
+  /** Stat badge — per client edits: 20+ years of experience, name underneath */
+  yearsBadge: "20+ Years",
+  yearsBadgeLabel: "Accounting Experience",
+  yearsBadgeName: "Victoria Harris-Pelletier",
   rating: { value: "5.0", count: "Google reviews" },
   /** Approximate geo coordinates for Lowell, AR (used in LocalBusiness schema) */
   geo: { lat: 36.2554, lng: -94.1308 },

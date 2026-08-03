@@ -9,6 +9,11 @@ import { useState } from "react";
  * like "https://formspree.io/f/XXXXXXXX", a Netlify/Basin endpoint, or a
  * custom API route). Until it's set, the form shows the success state
  * without transmitting data, so the layout can be reviewed safely.
+ *
+ * CLIENT REQUIREMENT: Victoria wants submissions delivered to her phone as
+ * a TEXT MESSAGE, not email (emails get lost in spam). Pick a handler with
+ * SMS notifications (e.g. Formspree/Zapier → Twilio SMS, or a form service
+ * with built-in SMS alerts) when wiring this up.
  */
 const FORM_ENDPOINT = ""; // TODO: replace with the client's form handler URL
 

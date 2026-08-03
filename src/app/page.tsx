@@ -213,13 +213,16 @@ export default function HomePage() {
               height="800"
               className="w-full rounded-lg shadow-2xl"
             />
-            {/* Floating stat badge — EDITABLE: confirm years with client */}
+            {/* Floating stat badge — 20+ years, name underneath (per client edits) */}
             <div className="absolute -bottom-6 -right-4 rounded-lg bg-gold-500 px-7 py-5 text-center shadow-xl sm:-right-6">
               <span className="block font-display text-3xl font-bold text-navy-950">
                 {site.yearsBadge}
               </span>
               <span className="block text-xs font-semibold uppercase tracking-wider text-navy-900/80">
                 {site.yearsBadgeLabel}
+              </span>
+              <span className="mt-1 block border-t border-navy-950/20 pt-1 text-[0.65rem] font-semibold text-navy-900">
+                {site.yearsBadgeName}
               </span>
             </div>
           </div>
@@ -229,7 +232,8 @@ export default function HomePage() {
               Numbers with a <span className="accent-italic">personal</span> touch
             </h2>
             <p className="mt-6 leading-relaxed text-navy-900/75">
-              TSB Accounting Solutions was founded by Victoria Harris-Pelletier
+              TSB Accounting Solutions was founded by Victoria Harris-Pelletier —
+              a licensed CPA with more than 20 years of accounting experience —
               on a simple standard: treat every client&apos;s finances like they&apos;re
               your own. Based in Lowell, Arkansas, we&apos;ve grown alongside the
               small businesses of Northwest Arkansas — handling their books,

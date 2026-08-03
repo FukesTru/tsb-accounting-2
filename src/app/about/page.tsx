@@ -36,7 +36,7 @@ export default function AboutPage() {
         titlePre="Meet"
         keyword="Victoria Harris-Pelletier"
         titlePost=", TSB Accounting Solutions"
-        subtitle="Owner, accountant, and the person who treats your business finances like her own."
+        subtitle="Licensed CPA, owner, and the person who treats your business finances like her own — with 20+ years of accounting experience."
       />
 
       {/* Bio */}
@@ -58,6 +58,9 @@ export default function AboutPage() {
               <span className="block text-xs font-semibold uppercase tracking-wider text-navy-900/80">
                 {site.yearsBadgeLabel}
               </span>
+              <span className="mt-1 block border-t border-navy-950/20 pt-1 text-[0.65rem] font-semibold text-navy-900">
+                {site.yearsBadgeName}
+              </span>
             </div>
           </div>
 
@@ -68,13 +71,25 @@ export default function AboutPage() {
             </h2>
             <div className="mt-6 space-y-5 leading-relaxed text-navy-900/80">
               <p>
-                Victoria Harris-Pelletier founded TSB Accounting Solutions, LLC
-                with a conviction that most small business owners share: your
-                accountant should care about your money the way you do. From the
-                firm&apos;s home base in Lowell, Arkansas, Victoria and her team
-                provide bookkeeping, accounting and advisory services, and
-                fractional CFO and controller support to businesses across
-                Northwest Arkansas — and virtually across the country.
+                Victoria Harris-Pelletier, a licensed CPA with more than 20
+                years of accounting experience, founded TSB Accounting
+                Solutions, LLC with a conviction that most small business owners
+                share: your accountant should care about your money the way you
+                do. From the firm&apos;s home base in Lowell, Arkansas, Victoria
+                and her team provide bookkeeping, accounting and advisory
+                services, and fractional CFO and controller support to
+                businesses across Northwest Arkansas — and virtually across the
+                country.
+              </p>
+              <p>
+                Victoria grew up around the construction business and built her
+                career in a region shaped by some of the largest companies in
+                America — so she understands, firsthand, how serious
+                organizations run their finances. Construction accounting
+                remains one of the firm&apos;s deepest specialties: job costing,
+                WIP reporting, and real-time job profitability for contractors
+                who can&apos;t afford to wait until year-end to learn which jobs
+                made money.
               </p>
               <p>
                 The firm&apos;s philosophy comes down to three things. First,
@@ -92,10 +107,10 @@ export default function AboutPage() {
                 CFO-level strategy without a full-time hire. If that sounds like
                 you, the first conversation is free.
               </p>
-              {/* Credentials placeholder — add certifications/licenses when confirmed with client */}
-              <p className="rounded-lg border border-dashed border-navy-900/20 bg-cream-50 p-4 text-sm text-navy-900/60">
-                Credentials &amp; certifications: to be added — placeholder for
-                degrees, certifications, and professional memberships.
+              {/* Credentials — confirm exact license/state details with client before launch */}
+              <p className="rounded-lg border-l-4 border-gold-500 bg-cream-50 p-4 text-sm font-medium text-navy-900/80">
+                Licensed CPA · 20+ years of accounting experience · Construction
+                accounting specialist
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-4">

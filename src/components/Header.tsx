@@ -47,6 +47,12 @@ export default function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+          <Link
+            href="/"
+            className="px-4 py-2 text-sm font-medium text-white transition-colors hover:text-gold-300"
+          >
+            Home
+          </Link>
           {/* Services mega-menu */}
           <div
             className="relative"
@@ -179,6 +185,10 @@ export default function Header() {
           className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-white/10 bg-navy-950/98 px-4 pb-8 pt-4 lg:hidden"
           aria-label="Mobile navigation"
         >
+          <Link href="/" className="block border-b border-white/10 py-3.5 font-medium text-white">
+            Home
+          </Link>
+
           <MobileSection
             label="Services"
             open={openMenu === "m-services"}
