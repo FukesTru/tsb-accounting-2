@@ -5,8 +5,9 @@ bookkeeping, and fractional CFO/controller services for Northwest Arkansas and
 virtual clients nationwide.
 
 Built with **Next.js 15 (App Router) + Tailwind CSS 4**, with scroll-triggered
-fade-up animations, full local-SEO schema markup, and a data-driven page
+animations, full local-SEO schema markup, and a data-driven page
 architecture modeled on the 12 Point Construction reference site.
+(Reviews/testimonials UI is intentionally absent for now — see checklist item 1.)
 
 ## Commands
 
@@ -40,8 +41,11 @@ menu, footer, and schema block updates:
 
 ## 🚀 Pre-launch checklist (marked in code with ⚠️/TODO/PLACEHOLDER)
 
-1. **Testimonials** — replace placeholders in `src/lib/testimonials.ts` with real
-   Google reviews from the GBP (or wire a live reviews widget).
+1. **Testimonials** — the reviews section and rating badges are currently
+   REMOVED (per client direction) until real Google reviews exist. When ready,
+   restore from git history (`src/lib/testimonials.ts`, `src/components/Stars.tsx`,
+   and the homepage testimonials section, removed in this commit) and fill with
+   real GBP reviews — or wire a live widget (Elfsight/EmbedSocial).
 2. **Contact form** — set `FORM_ENDPOINT` in `src/components/ContactForm.tsx`.
    ⚠️ Client wants submissions delivered **to her phone by SMS/text, not email**
    (emails get lost in spam) — pick a handler with SMS notifications

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
-import Stars from "@/components/Stars";
 import Faq from "@/components/Faq";
 import CtaBand from "@/components/CtaBand";
 import MapEmbed from "@/components/MapEmbed";
@@ -11,7 +10,6 @@ import { localBusinessSchema } from "@/lib/schema";
 import { site, fullAddress } from "@/lib/site";
 import { serviceCategories } from "@/lib/services";
 import { serviceAreas } from "@/lib/areas";
-import { testimonials } from "@/lib/testimonials";
 import { storyImage } from "@/lib/images";
 import Marquee from "@/components/Marquee";
 import StatsBand from "@/components/StatsBand";
@@ -66,22 +64,12 @@ export default function HomePage() {
       <section className="on-dark relative overflow-hidden bg-navy-900 pb-24 pt-40">
         <HeroBackdrop />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <div
-            className="mx-auto mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2"
+          <p
+            className="mx-auto mb-7 inline-block rounded-full border border-white/15 bg-white/5 px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-gold-300"
             data-aos
           >
-            <Stars />
-            <span className="text-sm font-semibold text-white">{site.rating.value}</span>
-            <span className="text-sm text-white/60">·</span>
-            <a
-              href={site.googleBusinessProfile}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-white/70 transition-colors hover:text-gold-300"
-            >
-              Google reviews
-            </a>
-          </div>
+            Licensed CPA · Lowell, AR
+          </p>
           <h1
             className="mx-auto max-w-4xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
             data-aos
@@ -363,66 +351,6 @@ export default function HomePage() {
                 Anywhere in the U.S. — fully virtual engagements nationwide
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7 — Testimonials */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center" data-aos>
-            <p className="eyebrow">Testimonials</p>
-            <h2 className="mt-3 font-display text-3xl font-bold text-navy-900 sm:text-4xl">
-              What our clients <span className="accent-italic">say</span>
-            </h2>
-            <div className="mt-5 flex items-center justify-center gap-3">
-              <Stars className="h-5 w-5" />
-              <span className="font-semibold text-navy-900">{site.rating.value}</span>
-              <span className="text-navy-900/60">on Google</span>
-            </div>
-            <a
-              href={site.googleBusinessProfile}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline-dark mt-6"
-            >
-              Leave a Review
-            </a>
-          </div>
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <figure
-                key={i}
-                className="card-lift relative rounded-lg border border-navy-900/10 bg-cream-50 p-7 hover:border-gold-500/50 hover:shadow-lg"
-                data-aos
-                data-aos-delay={String(i * 120)}
-              >
-                <span
-                  className="pointer-events-none absolute right-5 top-2 font-display text-7xl font-bold text-gold-500/15"
-                  aria-hidden="true"
-                >
-                  &ldquo;
-                </span>
-                <Stars />
-                <blockquote className="mt-4 text-sm leading-relaxed text-navy-900/80">
-                  “{t.text}”
-                </blockquote>
-                <figcaption className="mt-6 flex items-center gap-3">
-                  <span
-                    className="flex h-11 w-11 items-center justify-center rounded-full bg-navy-900 font-display text-lg font-bold text-gold-400"
-                    aria-hidden="true"
-                  >
-                    {t.initial}
-                  </span>
-                  <span>
-                    <span className="block text-sm font-semibold text-navy-900">{t.name}</span>
-                    <span className="block text-xs text-navy-900/60">
-                      {t.source} · {t.date}
-                    </span>
-                  </span>
-                </figcaption>
-              </figure>
-            ))}
           </div>
         </div>
       </section>

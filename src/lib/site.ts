@@ -42,7 +42,6 @@ export const site = {
   yearsBadge: "20+ Years",
   yearsBadgeLabel: "Accounting Experience",
   yearsBadgeName: "Victoria Harris-Pelletier",
-  rating: { value: "5.0", count: "Google reviews" },
   /** Approximate geo coordinates for Lowell, AR (used in LocalBusiness schema) */
   geo: { lat: 36.2554, lng: -94.1308 },
   trustChips: [

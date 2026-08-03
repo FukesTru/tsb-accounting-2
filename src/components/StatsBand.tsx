@@ -4,7 +4,7 @@ import CountUp from "./CountUp";
 export default function StatsBand() {
   const stats = [
     { end: 20, suffix: "+", decimals: 0, label: "Years of Experience" },
-    { end: 5.0, suffix: "★", decimals: 1, label: "Google Rating" },
+    { end: 4, suffix: "+", decimals: 0, label: "Years in Business" },
     { end: 3, suffix: "", decimals: 0, label: "Full Service Lines" },
     { end: 100, suffix: "%", decimals: 0, label: "Cloud-Based & Virtual-Ready" },
   ];
