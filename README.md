@@ -52,8 +52,10 @@ menu, footer, and schema block updates:
 4. **Photos** — swap the SVG placeholders in `public/images/` for real photos
    (keep filenames): service cards ×3, plus `story-office.svg` when Victoria's
    About/profile photo is ready.
-5. **Logo** — client marked "I need one designed"; swap the text lockup in
-   `src/components/Logo.tsx` when the final logo exists.
+5. **Logo** — the client's TSB logo (serif TSB, gold S, gold rules) is
+   recreated as SVG in `src/components/Logo.tsx` (+ standalone assets in
+   `public/images/logo-tsb*.svg`). If the client can share the original
+   vector/PNG source, swap it in for pixel-perfect fidelity.
 6. **Business hours** — confirm (`hours` in `src/lib/site.ts`).
 7. **About bio & credentials** — Victoria to review/personalize
    (`src/app/about/page.tsx`); confirm exact CPA license/state wording.

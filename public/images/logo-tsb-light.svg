@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 96" role="img" aria-label="TSB Accounting Solutions logo">
+  <!-- TSB brand logo (light-on-dark variant for navy backgrounds). -->
+  <line x1="32" y1="8" x2="118" y2="8" stroke="#C9A84C" stroke-width="3.5"/>
+  <text x="75" y="70" text-anchor="middle" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-weight="700" font-size="60" letter-spacing="-2"><tspan fill="#ffffff">T</tspan><tspan fill="#C9A84C">S</tspan><tspan fill="#ffffff">B</tspan></text>
+  <line x1="32" y1="88" x2="118" y2="88" stroke="#C9A84C" stroke-width="3.5"/>
+</svg>

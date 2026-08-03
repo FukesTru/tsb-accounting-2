@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 96" role="img" aria-label="TSB Accounting Solutions logo">
+  <!-- TSB brand logo (original navy colorway) — SVG recreation of the
+       client-supplied logo. Replace with the original vector file if the
+       client can provide it. Standalone file falls back to Georgia when
+       Playfair Display isn't available. -->
+  <line x1="32" y1="8" x2="118" y2="8" stroke="#C9A84C" stroke-width="3.5"/>
+  <text x="75" y="70" text-anchor="middle" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-weight="700" font-size="60" letter-spacing="-2"><tspan fill="#14284B">T</tspan><tspan fill="#C9A84C">S</tspan><tspan fill="#14284B">B</tspan></text>
+  <line x1="32" y1="88" x2="118" y2="88" stroke="#C9A84C" stroke-width="3.5"/>
+</svg>
