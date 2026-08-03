@@ -6,6 +6,7 @@ import JsonLd from "@/components/JsonLd";
 import { personSchema, localBusinessSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 import { serviceCategories } from "@/lib/services";
+import { storyImage } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "About Victoria Harris-Pelletier",
@@ -44,12 +45,12 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-7xl items-start gap-14 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:px-8">
           <div className="relative" data-aos>
             <img
-              src="/images/story-office.svg"
-              alt="Victoria Harris-Pelletier, owner of TSB Accounting Solutions — professional photo coming soon"
+              src={storyImage.src}
+              alt={storyImage.alt}
               loading="lazy"
               width="700"
               height="800"
-              className="w-full rounded-lg shadow-2xl"
+              className="aspect-[7/8] w-full rounded-lg object-cover shadow-2xl"
             />
             <div className="absolute -bottom-6 -right-4 rounded-lg bg-gold-500 px-7 py-5 text-center shadow-xl sm:-right-6">
               <span className="block font-display text-3xl font-bold text-navy-950">

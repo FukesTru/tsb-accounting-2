@@ -51,9 +51,11 @@ export const serviceCategories: ServiceCategory[] = [
     heroKeyword: "Accounting & Advisory",
     cardDescription:
       "Accurate financials and forward-looking advice — so you always know where your business stands and where it's headed.",
-    image: "/images/service-accounting.svg",
+    // Unsplash stock (free license) — swap for real firm photos when available
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&h=750&q=80",
     imageAlt:
-      "Financial statements and advisory review — accounting services placeholder image",
+      "Accountant reviewing financial documents and reports with a client",
     intro: [
       "Good decisions start with good numbers. Our accounting and advisory services give Northwest Arkansas business owners clean, reliable financial statements — and, just as importantly, someone who can explain what they mean and what to do next. Instead of getting a stack of reports once a year at tax time, you get financials you can actually use to run your business month to month.",
       "We prepare financial statements, build tax planning strategies that reduce surprises in April, and act as a sounding board for the decisions that keep you up at night: pricing, hiring, equipment purchases, and growth. Whether you're in Lowell, Rogers, Bentonville, Fayetteville, or working with us virtually from anywhere in the U.S., you get the same thing — numbers you can trust and advice in plain English.",
@@ -411,9 +413,11 @@ export const serviceCategories: ServiceCategory[] = [
     heroKeyword: "Fractional CFO & Controller",
     cardDescription:
       "Executive-level financial leadership — strategy, forecasting, and oversight — at a fraction of a full-time hire.",
-    image: "/images/service-cfo.svg",
+    // Unsplash stock (free license) — swap for real firm photos when available
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&h=750&q=80",
     imageAlt:
-      "Financial strategy and forecasting dashboard — fractional CFO services placeholder image",
+      "Financial KPI dashboard and growth charts on a laptop — CFO-level reporting",
     intro: [
       "There's a stage where a growing business needs more than bookkeeping but isn't ready for a six-figure finance hire. That's exactly the gap our fractional CFO and controller services fill: senior financial leadership, on a part-time basis, at a fraction of the cost of a full-time executive.",
       "As your fractional CFO, we own the forward-looking work — budgets, forecasts, cash strategy, and the financial story you tell lenders and investors. As your fractional controller, we own the accuracy side — closing the books, enforcing process, and making sure every report you see is right. Many Northwest Arkansas clients use both together as a complete outsourced finance department. You focus on running the business; we make sure the finance function keeps up.",
@@ -622,9 +626,11 @@ export const serviceCategories: ServiceCategory[] = [
     heroKeyword: "Bookkeeping",
     cardDescription:
       "Clean, current, tax-ready books every month — done for you, so you can get back to running your business.",
-    image: "/images/service-bookkeeping.svg",
+    // Unsplash stock (free license) — swap for real firm photos when available
+    image:
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&h=750&q=80",
     imageAlt:
-      "Organized ledger and reconciled accounts — bookkeeping services placeholder image",
+      "Calculator and financial paperwork — monthly bookkeeping and reconciliation",
     intro: [
       "Bookkeeping is the foundation everything else in your business finances sits on — and it's the first thing to slide when you're busy actually running the business. We take it off your plate entirely: transactions categorized, accounts reconciled, and reports delivered every month, accurately and on time.",
       "Whether you need ongoing monthly bookkeeping, a one-time cleanup of books that have gotten away from you, payroll support, help managing payables and receivables, or a proper QuickBooks setup, our team handles it with the care we'd give our own money. We work with small businesses across Lowell, Rogers, Bentonville, Fayetteville, and all of Northwest Arkansas — and because everything runs in the cloud, with clients anywhere in the U.S.",

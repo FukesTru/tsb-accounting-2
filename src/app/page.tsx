@@ -12,6 +12,7 @@ import { site, fullAddress } from "@/lib/site";
 import { serviceCategories } from "@/lib/services";
 import { serviceAreas } from "@/lib/areas";
 import { testimonials } from "@/lib/testimonials";
+import { storyImage } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: `Accountant & Fractional CFO in Northwest Arkansas | ${site.name}`,
@@ -206,12 +207,12 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="relative" data-aos>
             <img
-              src="/images/story-office.svg"
-              alt="Victoria Harris-Pelletier, owner of TSB Accounting Solutions — professional photo coming soon"
+              src={storyImage.src}
+              alt={storyImage.alt}
               loading="lazy"
               width="700"
               height="800"
-              className="w-full rounded-lg shadow-2xl"
+              className="aspect-[7/8] w-full rounded-lg object-cover shadow-2xl"
             />
             {/* Floating stat badge — 20+ years, name underneath (per client edits) */}
             <div className="absolute -bottom-6 -right-4 rounded-lg bg-gold-500 px-7 py-5 text-center shadow-xl sm:-right-6">

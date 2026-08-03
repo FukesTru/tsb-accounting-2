@@ -49,9 +49,11 @@ menu, footer, and schema block updates:
    state and sends nothing.
 3. **GA4** — replace `G-XXXXXXXXXX` in `src/app/layout.tsx` with the real
    Measurement ID (or remove the tag).
-4. **Photos** — swap the SVG placeholders in `public/images/` for real photos
-   (keep filenames): service cards ×3, plus `story-office.svg` when Victoria's
-   About/profile photo is ready.
+4. **Photos** — site now uses Unsplash stock (hotlinked from the Unsplash
+   CDN; free license, commercial use OK). Service-card URLs live in
+   `src/lib/services.ts`; the story/About portrait is in `src/lib/images.ts`
+   and should be swapped for Victoria's real headshot when ready. Original
+   SVG placeholders remain in `public/images/` as offline fallbacks.
 5. **Logo** — the client's TSB logo (serif TSB, gold S, gold rules) is
    recreated as SVG in `src/components/Logo.tsx` (+ standalone assets in
    `public/images/logo-tsb*.svg`). If the client can share the original
