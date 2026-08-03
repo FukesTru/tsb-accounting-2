@@ -65,8 +65,9 @@ export function HeroBackdrop() {
           backgroundSize: "56px 56px",
         }}
       />
-      <div className="absolute -right-32 top-10 h-96 w-96 rounded-full bg-gold-500/10 blur-3xl" />
-      <div className="absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-teal-600/10 blur-3xl" />
+      <div className="orb-a absolute -right-32 top-10 h-96 w-96 rounded-full bg-gold-500/10 blur-3xl" />
+      <div className="orb-b absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-teal-600/10 blur-3xl" />
+      <div className="orb-b absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-gold-500/5 blur-2xl" />
     </div>
   );
 }

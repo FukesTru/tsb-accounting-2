@@ -49,7 +49,27 @@ h3,
   font-family: var(--font-sans);
 }
 .btn-primary {
-  @apply bg-gold-500 text-navy-950 shadow-lg shadow-gold-500/20 hover:bg-gold-400 hover:shadow-gold-500/30 hover:-translate-y-0.5;
+  @apply relative overflow-hidden bg-gold-500 text-navy-950 shadow-lg shadow-gold-500/20 hover:bg-gold-400 hover:shadow-gold-500/30 hover:-translate-y-0.5;
+}
+/* shine sweep across primary buttons on hover */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  height: 100%;
+  width: 45%;
+  background: linear-gradient(
+    105deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+.btn-primary:hover::after {
+  left: 130%;
 }
 .btn-outline-light {
   @apply border border-white/40 text-white hover:border-gold-400 hover:text-gold-300;
@@ -58,13 +78,24 @@ h3,
   @apply border border-navy-900/30 text-navy-900 hover:border-gold-600 hover:text-gold-600;
 }
 
-/* ---------- Gold accent underline on hero keywords ---------- */
+/* ---------- Gold accent underline on hero keywords (draws itself in) ---------- */
 .accent-underline {
-  text-decoration-line: underline;
-  text-decoration-color: var(--color-gold-500);
-  text-decoration-thickness: 0.09em;
-  text-underline-offset: 0.16em;
-  text-decoration-skip-ink: none;
+  background-image: linear-gradient(
+    var(--color-gold-500),
+    var(--color-gold-500)
+  );
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 0.09em;
+  padding-bottom: 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  animation: underline-grow 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.55s forwards;
+}
+@keyframes underline-grow {
+  to {
+    background-size: 100% 0.09em;
+  }
 }
 
 /* Italic accent word in section headings (reference-site style) */
@@ -85,7 +116,12 @@ h3,
   color: var(--color-gold-400);
 }
 
-/* ---------- Scroll-triggered fade-up reveals (AOS-style) ---------- */
+/* ---------- Scroll-triggered reveals (AOS-style) ----------
+   data-aos            -> fade-up (default)
+   data-aos="fade-left"  -> slides in from the right
+   data-aos="fade-right" -> slides in from the left
+   data-aos="zoom-in"    -> scales up
+   data-aos-delay="150"  -> per-element stagger (ms)                    */
 [data-aos] {
   opacity: 0;
   transform: translateY(28px);
@@ -95,10 +131,116 @@ h3,
   transition-delay: var(--aos-delay, 0ms);
   will-change: opacity, transform;
 }
+[data-aos="fade-left"] {
+  transform: translateX(36px);
+}
+[data-aos="fade-right"] {
+  transform: translateX(-36px);
+}
+[data-aos="zoom-in"] {
+  transform: scale(0.9);
+}
 [data-aos].aos-in {
   opacity: 1;
   transform: none;
 }
+
+/* ---------- Ambient drifting glow orbs (dark heroes/sections) ---------- */
+@keyframes float-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-34px, 22px) scale(1.18);
+  }
+}
+@keyframes float-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(28px, -20px) scale(1.12);
+  }
+}
+.orb-a {
+  animation: float-a 13s ease-in-out infinite;
+}
+.orb-b {
+  animation: float-b 17s ease-in-out infinite;
+}
+
+/* ---------- Scrolling services marquee ---------- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 36s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ---------- Pulsing ring behind the floating Call Now button ---------- */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+.pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--color-gold-500);
+  animation: pulse-ring 2.2s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+  z-index: -1;
+}
+
+/* ---------- Image zoom-on-hover (wrap img in .img-zoom) ---------- */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.img-zoom:hover img,
+a:hover > .img-zoom img,
+.group:hover .img-zoom img {
+  transform: scale(1.07);
+}
+
+/* ---------- Arrow nudge on "Explore ->" style links ---------- */
+.arrow-link .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.arrow-link:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* ---------- Card lift ---------- */
+.card-lift {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 0.4s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -106,6 +248,20 @@ h3,
   [data-aos] {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+  .accent-underline {
+    animation: none;
+    background-size: 100% 0.09em;
+  }
+  .orb-a,
+  .orb-b,
+  .marquee-track,
+  .pulse-ring::before {
+    animation: none;
+  }
+  .img-zoom img,
+  .card-lift {
     transition: none;
   }
 }

@@ -75,7 +75,7 @@ export default async function SubServicePage({
       {/* Intro + What's Included */}
       <section className="bg-white py-20">
         <div className="mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[1.3fr_1fr] lg:px-8">
-          <div data-aos>
+          <div data-aos="fade-right">
             {page.intro.map((p, i) => (
               <p key={i} className={`leading-relaxed text-navy-900/80 ${i > 0 ? "mt-5" : ""}`}>
                 {p}
@@ -83,10 +83,14 @@ export default async function SubServicePage({
             ))}
           </div>
           <aside
-            className="h-fit rounded-lg border border-navy-900/10 bg-cream-50 p-8"
-            data-aos
+            className="relative h-fit overflow-hidden rounded-lg border border-navy-900/10 bg-cream-50 p-8"
+            data-aos="fade-left"
             data-aos-delay="150"
           >
+            <span
+              className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gold-500/10 blur-2xl"
+              aria-hidden="true"
+            />
             <h2 className="font-display text-xl font-bold text-navy-900">
               What&apos;s <span className="accent-italic">included</span>
             </h2>
@@ -155,9 +159,9 @@ export default async function SubServicePage({
               <Link
                 key={s.slug}
                 href={`/services/${cat.slug}/${s.slug}`}
-                className="rounded-lg border border-navy-900/10 p-5 text-sm font-semibold text-navy-900 transition-colors hover:border-gold-500 hover:text-gold-600"
+                className="card-lift arrow-link rounded-lg border border-navy-900/10 p-5 text-sm font-semibold text-navy-900 hover:border-gold-500 hover:text-gold-600"
               >
-                {s.name} →
+                {s.name} <span className="arrow">→</span>
               </Link>
             ))}
             <Link

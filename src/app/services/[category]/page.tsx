@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import PageHero from "@/components/PageHero";
 import ProcessSteps from "@/components/ProcessSteps";
 import CtaBand from "@/components/CtaBand";
+import StatsBand from "@/components/StatsBand";
 import JsonLd from "@/components/JsonLd";
 import { serviceSchema } from "@/lib/schema";
 import { serviceCategories, getCategory } from "@/lib/services";
@@ -90,17 +91,21 @@ export default async function ServiceCategoryPage({
                 <Link
                   key={sub.name}
                   href={href}
-                  className="group rounded-lg border border-navy-900/10 bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                  className="card-lift arrow-link group rounded-lg border border-navy-900/10 bg-white p-7 shadow-sm hover:border-gold-500/50 hover:shadow-lg"
                   data-aos
                   data-aos-delay={String((i % 3) * 100)}
                 >
-                  <span className="block h-1 w-10 rounded bg-gold-500" aria-hidden="true" />
-                  <h3 className="mt-4 font-display text-xl font-semibold text-navy-900 group-hover:text-gold-600">
+                  <span
+                    className="block h-1 w-10 rounded bg-gold-500 transition-all duration-500 group-hover:w-16"
+                    aria-hidden="true"
+                  />
+                  <h3 className="mt-4 font-display text-xl font-semibold text-navy-900 transition-colors group-hover:text-gold-600">
                     {sub.name}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-navy-900/70">{sub.blurb}</p>
                   <span className="mt-4 inline-block text-xs font-bold uppercase tracking-wider text-teal-600">
-                    {sub.slug ? "Learn More →" : "Included in this service →"}
+                    {sub.slug ? "Learn More" : "Included in this service"}{" "}
+                    <span className="arrow">→</span>
                   </span>
                 </Link>
               );
@@ -112,7 +117,7 @@ export default async function ServiceCategoryPage({
       {/* What We Handle */}
       <section id="what-we-handle" className="bg-white py-20 scroll-mt-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <div data-aos>
+          <div data-aos="fade-right">
             <p className="eyebrow">What We Handle</p>
             <h2 className="mt-3 font-display text-3xl font-bold text-navy-900">
               Everything <span className="accent-italic">covered</span>
@@ -135,15 +140,17 @@ export default async function ServiceCategoryPage({
               ))}
             </ul>
           </div>
-          <div data-aos data-aos-delay="150">
-            <img
-              src={cat.image}
-              alt={cat.imageAlt}
-              loading="lazy"
-              width="800"
-              height="520"
-              className="w-full rounded-lg shadow-xl"
-            />
+          <div data-aos="fade-left" data-aos-delay="150">
+            <span className="img-zoom block rounded-lg shadow-xl">
+              <img
+                src={cat.image}
+                alt={cat.imageAlt}
+                loading="lazy"
+                width="800"
+                height="520"
+                className="aspect-[8/5] w-full rounded-lg object-cover"
+              />
+            </span>
             <div className="mt-8 rounded-lg border-l-4 border-gold-500 bg-cream-50 p-6">
               <h3 className="font-display text-lg font-semibold text-navy-900">
                 Why work with a dedicated accountant?
@@ -168,6 +175,8 @@ export default async function ServiceCategoryPage({
           </div>
         </div>
       </section>
+
+      <StatsBand />
 
       <CtaBand
         heading={`Ready to talk ${cat.shortName.toLowerCase()}?`}

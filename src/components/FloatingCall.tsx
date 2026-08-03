@@ -5,7 +5,7 @@ export default function FloatingCall() {
   return (
     <a
       href={site.phoneHref}
-      className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-gold-500 px-5 py-3.5 text-sm font-bold uppercase tracking-wide text-navy-950 shadow-xl shadow-black/30 transition-transform active:scale-95 lg:hidden"
+      className="pulse-ring fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-gold-500 px-5 py-3.5 text-sm font-bold uppercase tracking-wide text-navy-950 shadow-xl shadow-black/30 transition-transform active:scale-95 lg:hidden"
       aria-label={`Call TSB Accounting Solutions now at ${site.phone}`}
     >
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">

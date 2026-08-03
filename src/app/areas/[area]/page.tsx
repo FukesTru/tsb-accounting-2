@@ -68,7 +68,7 @@ export default async function AreaPage({ params }: { params: Promise<Params> }) 
       {/* NAP + map */}
       <section className="bg-cream-50 py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1.3fr] lg:px-8">
-          <div data-aos>
+          <div data-aos="fade-right">
             <p className="eyebrow">Local to You</p>
             <h2 className="mt-3 font-display text-3xl font-bold text-navy-900">
               Serving <span className="accent-italic">{area.city}</span> from Lowell
@@ -95,7 +95,7 @@ export default async function AreaPage({ params }: { params: Promise<Params> }) 
               </li>
             </ul>
           </div>
-          <div data-aos data-aos-delay="150">
+          <div data-aos="fade-left" data-aos-delay="150">
             <MapEmbed className="h-full min-h-96" />
           </div>
         </div>
@@ -115,19 +115,22 @@ export default async function AreaPage({ params }: { params: Promise<Params> }) 
               <Link
                 key={cat.slug}
                 href={`/services/${cat.slug}`}
-                className="group rounded-lg border border-navy-900/10 p-7 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="card-lift arrow-link group rounded-lg border border-navy-900/10 p-7 shadow-sm hover:border-gold-500/50 hover:shadow-lg"
                 data-aos
                 data-aos-delay={String(i * 100)}
               >
-                <span className="block h-1 w-10 rounded bg-gold-500" aria-hidden="true" />
-                <h3 className="mt-4 font-display text-xl font-semibold text-navy-900 group-hover:text-gold-600">
+                <span
+                  className="block h-1 w-10 rounded bg-gold-500 transition-all duration-500 group-hover:w-16"
+                  aria-hidden="true"
+                />
+                <h3 className="mt-4 font-display text-xl font-semibold text-navy-900 transition-colors group-hover:text-gold-600">
                   {cat.shortName}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-navy-900/70">
                   {cat.cardDescription}
                 </p>
                 <span className="mt-4 inline-block text-xs font-bold uppercase tracking-wider text-teal-600">
-                  Explore →
+                  Explore <span className="arrow">→</span>
                 </span>
               </Link>
             ))}

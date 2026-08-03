@@ -13,6 +13,8 @@ import { serviceCategories } from "@/lib/services";
 import { serviceAreas } from "@/lib/areas";
 import { testimonials } from "@/lib/testimonials";
 import { storyImage } from "@/lib/images";
+import Marquee from "@/components/Marquee";
+import StatsBand from "@/components/StatsBand";
 
 export const metadata: Metadata = {
   title: `Accountant & Fractional CFO in Northwest Arkansas | ${site.name}`,
@@ -103,8 +105,21 @@ export default function HomePage() {
               Call {site.phone}
             </a>
           </div>
+          <div
+            className="mt-16 flex justify-center"
+            data-aos
+            data-aos-delay="500"
+            aria-hidden="true"
+          >
+            <span className="flex h-10 w-6 items-start justify-center rounded-full border border-white/25 p-1.5">
+              <span className="h-2 w-1 animate-bounce rounded-full bg-gold-400" />
+            </span>
+          </div>
         </div>
       </section>
+
+      {/* Scrolling services strip */}
+      <Marquee />
 
       {/* 2 — What We Do */}
       <section className="bg-white py-24">
@@ -124,19 +139,21 @@ export default function HomePage() {
             {serviceCategories.map((cat, i) => (
               <article
                 key={cat.slug}
-                className="flex flex-col overflow-hidden rounded-lg border border-navy-900/10 bg-white shadow-sm transition-shadow hover:shadow-xl"
+                className="card-lift group flex flex-col overflow-hidden rounded-lg border border-navy-900/10 bg-white shadow-sm hover:border-gold-500/50 hover:shadow-xl"
                 data-aos
                 data-aos-delay={String(i * 120)}
               >
                 <Link href={`/services/${cat.slug}`} aria-label={cat.name}>
-                  <img
-                    src={cat.image}
-                    alt={cat.imageAlt}
-                    loading="lazy"
-                    width="800"
-                    height="520"
-                    className="aspect-[8/5] w-full object-cover"
-                  />
+                  <span className="img-zoom block">
+                    <img
+                      src={cat.image}
+                      alt={cat.imageAlt}
+                      loading="lazy"
+                      width="800"
+                      height="520"
+                      className="aspect-[8/5] w-full object-cover"
+                    />
+                  </span>
                 </Link>
                 <div className="flex flex-1 flex-col p-7">
                   <h3 className="font-display text-2xl font-semibold text-navy-900">
@@ -166,9 +183,9 @@ export default function HomePage() {
                   </ul>
                   <Link
                     href={`/services/${cat.slug}`}
-                    className="mt-auto pt-6 text-sm font-bold uppercase tracking-wider text-gold-600 transition-colors hover:text-gold-500"
+                    className="arrow-link mt-auto pt-6 text-sm font-bold uppercase tracking-wider text-gold-600 transition-colors hover:text-gold-500"
                   >
-                    Explore →
+                    Explore <span className="arrow">→</span>
                   </Link>
                 </div>
               </article>
@@ -205,7 +222,8 @@ export default function HomePage() {
       {/* 4 — Our Story */}
       <section className="bg-cream-50 py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <div className="relative" data-aos>
+          <div className="relative" data-aos="fade-right">
+            <span className="img-zoom block rounded-lg">
             <img
               src={storyImage.src}
               alt={storyImage.alt}
@@ -214,6 +232,7 @@ export default function HomePage() {
               height="800"
               className="aspect-[7/8] w-full rounded-lg object-cover shadow-2xl"
             />
+            </span>
             {/* Floating stat badge — 20+ years, name underneath (per client edits) */}
             <div className="absolute -bottom-6 -right-4 rounded-lg bg-gold-500 px-7 py-5 text-center shadow-xl sm:-right-6">
               <span className="block font-display text-3xl font-bold text-navy-950">
@@ -227,7 +246,7 @@ export default function HomePage() {
               </span>
             </div>
           </div>
-          <div data-aos data-aos-delay="150">
+          <div data-aos="fade-left" data-aos-delay="150">
             <p className="eyebrow">Our Story</p>
             <h2 className="mt-3 font-display text-3xl font-bold text-navy-900 sm:text-4xl">
               Numbers with a <span className="accent-italic">personal</span> touch
@@ -247,13 +266,16 @@ export default function HomePage() {
             </p>
             <Link
               href="/about"
-              className="mt-7 inline-block text-sm font-bold uppercase tracking-wider text-gold-600 transition-colors hover:text-gold-500"
+              className="arrow-link mt-7 inline-block text-sm font-bold uppercase tracking-wider text-gold-600 transition-colors hover:text-gold-500"
             >
-              Our Full Story →
+              Our Full Story <span className="arrow">→</span>
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Animated count-up stats */}
+      <StatsBand />
 
       {/* 5 — How We Work */}
       <section className="bg-white py-24">
@@ -305,8 +327,8 @@ export default function HomePage() {
           <div className="mt-14 grid gap-8 lg:grid-cols-[1.2fr_1fr]">
             <Link
               href="/areas/lowell-ar"
-              className="group relative overflow-hidden rounded-lg border border-gold-500/30 bg-navy-800 p-10 transition-colors hover:border-gold-500/60"
-              data-aos
+              className="card-lift group relative overflow-hidden rounded-lg border border-gold-500/30 bg-navy-800 p-10 hover:border-gold-500/60"
+              data-aos="fade-right"
             >
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold-400">
                 Headquarters
@@ -322,7 +344,7 @@ export default function HomePage() {
                 Visit Page →
               </span>
             </Link>
-            <div className="grid gap-4" data-aos data-aos-delay="150">
+            <div className="grid gap-4" data-aos="fade-left" data-aos-delay="150">
               {serviceAreas
                 .filter((a) => !a.isPrimary)
                 .map((area) => (
@@ -371,10 +393,16 @@ export default function HomePage() {
             {testimonials.map((t, i) => (
               <figure
                 key={i}
-                className="rounded-lg border border-navy-900/10 bg-cream-50 p-7"
+                className="card-lift relative rounded-lg border border-navy-900/10 bg-cream-50 p-7 hover:border-gold-500/50 hover:shadow-lg"
                 data-aos
                 data-aos-delay={String(i * 120)}
               >
+                <span
+                  className="pointer-events-none absolute right-5 top-2 font-display text-7xl font-bold text-gold-500/15"
+                  aria-hidden="true"
+                >
+                  &ldquo;
+                </span>
                 <Stars />
                 <blockquote className="mt-4 text-sm leading-relaxed text-navy-900/80">
                   “{t.text}”

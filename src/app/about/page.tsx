@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import CtaBand from "@/components/CtaBand";
+import StatsBand from "@/components/StatsBand";
 import JsonLd from "@/components/JsonLd";
 import { personSchema, localBusinessSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -43,15 +44,17 @@ export default function AboutPage() {
       {/* Bio */}
       <section className="bg-white py-20">
         <div className="mx-auto grid max-w-7xl items-start gap-14 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:px-8">
-          <div className="relative" data-aos>
-            <img
-              src={storyImage.src}
-              alt={storyImage.alt}
-              loading="lazy"
-              width="700"
-              height="800"
-              className="aspect-[7/8] w-full rounded-lg object-cover shadow-2xl"
-            />
+          <div className="relative" data-aos="fade-right">
+            <span className="img-zoom block rounded-lg">
+              <img
+                src={storyImage.src}
+                alt={storyImage.alt}
+                loading="lazy"
+                width="700"
+                height="800"
+                className="aspect-[7/8] w-full rounded-lg object-cover shadow-2xl"
+              />
+            </span>
             <div className="absolute -bottom-6 -right-4 rounded-lg bg-gold-500 px-7 py-5 text-center shadow-xl sm:-right-6">
               <span className="block font-display text-3xl font-bold text-navy-950">
                 {site.yearsBadge}
@@ -65,7 +68,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div data-aos data-aos-delay="150">
+          <div data-aos="fade-left" data-aos-delay="150">
             <p className="eyebrow">Our Story</p>
             <h2 className="mt-3 font-display text-3xl font-bold text-navy-900">
               Accounting built on <span className="accent-italic">trust</span>
@@ -152,11 +155,14 @@ export default function AboutPage() {
             ].map((v, i) => (
               <div
                 key={v.title}
-                className="rounded-lg border border-navy-900/10 bg-white p-8 shadow-sm"
+                className="card-lift group rounded-lg border border-navy-900/10 bg-white p-8 shadow-sm hover:border-gold-500/50 hover:shadow-lg"
                 data-aos
                 data-aos-delay={String(i * 100)}
               >
-                <span className="block h-1 w-10 rounded bg-gold-500" aria-hidden="true" />
+                <span
+                  className="block h-1 w-10 rounded bg-gold-500 transition-all duration-500 group-hover:w-16"
+                  aria-hidden="true"
+                />
                 <h3 className="mt-4 font-display text-xl font-semibold text-navy-900">{v.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-navy-900/70">{v.text}</p>
               </div>
@@ -199,6 +205,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <StatsBand />
 
       <CtaBand
         heading="Let's talk about your business"

@@ -35,7 +35,7 @@ export default function ContactPage() {
       <section className="bg-white py-20">
         <div className="mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[1fr_1.2fr] lg:px-8">
           {/* Contact details */}
-          <div className="space-y-8" data-aos>
+          <div className="space-y-8" data-aos="fade-right">
             <div>
               <h2 className="font-display text-2xl font-bold text-navy-900">
                 Get in <span className="accent-italic">touch</span>
@@ -99,10 +99,14 @@ export default function ContactPage() {
 
           {/* Form */}
           <div
-            className="rounded-lg border border-navy-900/10 bg-cream-50 p-8 shadow-sm sm:p-10"
-            data-aos
+            className="relative overflow-hidden rounded-lg border border-navy-900/10 bg-cream-50 p-8 shadow-sm sm:p-10"
+            data-aos="fade-left"
             data-aos-delay="150"
           >
+            <span
+              className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-gold-500/10 blur-2xl"
+              aria-hidden="true"
+            />
             <h2 className="font-display text-2xl font-bold text-navy-900">Send a message</h2>
             <p className="mb-7 mt-2 text-sm text-navy-900/70">
               We reply within one business day.
