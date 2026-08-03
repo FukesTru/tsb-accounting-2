@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="Bookkeeping services illustration">
+  <!-- PLACEHOLDER IMAGE — swap for a real photo (keep the same filename to avoid code changes) -->
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#10283f"/>
+      <stop offset="1" stop-color="#0a0f14"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#bg3)"/>
+  <g opacity="0.06" stroke="#ffffff" stroke-width="1">
+    <path d="M0 130H800M0 260H800M0 390H800M200 0V520M400 0V520M600 0V520"/>
+  </g>
+  <g transform="translate(250,100)">
+    <rect x="0" y="0" width="300" height="320" rx="12" fill="#0B1E33" stroke="#C9A84C" stroke-width="3"/>
+    <line x1="60" y1="0" x2="60" y2="320" stroke="#C9A84C" stroke-width="2" opacity="0.5"/>
+    <g transform="translate(20,45)">
+      <circle cx="10" cy="0" r="12" fill="none" stroke="#2E7D74" stroke-width="3"/>
+      <path d="M4 0 l4 5 8 -10" fill="none" stroke="#2E7D74" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="60" y="-6" width="160" height="12" rx="6" fill="#ffffff" opacity="0.4"/>
+    </g>
+    <g transform="translate(20,115)">
+      <circle cx="10" cy="0" r="12" fill="none" stroke="#2E7D74" stroke-width="3"/>
+      <path d="M4 0 l4 5 8 -10" fill="none" stroke="#2E7D74" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="60" y="-6" width="130" height="12" rx="6" fill="#ffffff" opacity="0.4"/>
+    </g>
+    <g transform="translate(20,185)">
+      <circle cx="10" cy="0" r="12" fill="none" stroke="#2E7D74" stroke-width="3"/>
+      <path d="M4 0 l4 5 8 -10" fill="none" stroke="#2E7D74" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="60" y="-6" width="175" height="12" rx="6" fill="#ffffff" opacity="0.4"/>
+    </g>
+    <g transform="translate(20,255)">
+      <circle cx="10" cy="0" r="12" fill="none" stroke="#C9A84C" stroke-width="3"/>
+      <rect x="60" y="-6" width="145" height="12" rx="6" fill="#C9A84C" opacity="0.8"/>
+    </g>
+  </g>
+  <text x="400" y="480" text-anchor="middle" font-family="Georgia, serif" font-size="17" fill="#ffffff" opacity="0.5">Placeholder — replace with photo</text>
+</svg>

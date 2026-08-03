@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/*
+  TSB Accounting Solutions design system.
+  Default finance palette per build spec — if the client supplies brand
+  colors/fonts later, override the tokens below and the whole site follows.
+*/
+@theme {
+  --color-navy-950: #0a0f14; /* near-black — deepest sections */
+  --color-navy-900: #0b1e33; /* deep navy — heroes / dark sections */
+  --color-navy-800: #10283f; /* card surface on dark */
+  --color-navy-700: #1a3a57;
+  --color-gold-300: #e3cd8b;
+  --color-gold-400: #d6ba66;
+  --color-gold-500: #c9a84c; /* primary accent — CTAs, underlines, badges */
+  --color-gold-600: #b3923c;
+  --color-teal-600: #2e7d74; /* secondary accent — links/hovers */
+  --color-teal-700: #256760;
+  --color-cream-50: #faf8f3; /* light section background */
+
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-navy-900);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ---------- Uniform CTA buttons (site-wide) ---------- */
+.btn-primary,
+.btn-outline-light,
+.btn-outline-dark {
+  @apply inline-flex items-center justify-center gap-2 rounded-md px-7 py-3.5 text-sm font-semibold tracking-wide uppercase transition-all duration-300;
+  font-family: var(--font-sans);
+}
+.btn-primary {
+  @apply bg-gold-500 text-navy-950 shadow-lg shadow-gold-500/20 hover:bg-gold-400 hover:shadow-gold-500/30 hover:-translate-y-0.5;
+}
+.btn-outline-light {
+  @apply border border-white/40 text-white hover:border-gold-400 hover:text-gold-300;
+}
+.btn-outline-dark {
+  @apply border border-navy-900/30 text-navy-900 hover:border-gold-600 hover:text-gold-600;
+}
+
+/* ---------- Gold accent underline on hero keywords ---------- */
+.accent-underline {
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-gold-500);
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.16em;
+  text-decoration-skip-ink: none;
+}
+
+/* Italic accent word in section headings (reference-site style) */
+.accent-italic {
+  font-style: italic;
+  color: var(--color-gold-600);
+}
+.on-dark .accent-italic {
+  color: var(--color-gold-400);
+}
+
+/* ---------- Eyebrow label above section headings ---------- */
+.eyebrow {
+  @apply text-xs font-semibold tracking-[0.25em] uppercase text-gold-600;
+  font-family: var(--font-sans);
+}
+.on-dark .eyebrow {
+  color: var(--color-gold-400);
+}
+
+/* ---------- Scroll-triggered fade-up reveals (AOS-style) ---------- */
+[data-aos] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: var(--aos-delay, 0ms);
+  will-change: opacity, transform;
+}
+[data-aos].aos-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-aos] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
