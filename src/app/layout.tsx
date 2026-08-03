@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -58,6 +59,13 @@ gtag('config', 'G-XXXXXXXXXX');`,
         <main>{children}</main>
         <Footer />
         <FloatingCall />
+        {/* LeadConnector chat widget — site-wide */}
+        <Script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6a68f6fd702ca026d57bd00b"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

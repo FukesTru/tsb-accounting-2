@@ -46,11 +46,13 @@ menu, footer, and schema block updates:
    restore from git history (`src/lib/testimonials.ts`, `src/components/Stars.tsx`,
    and the homepage testimonials section, removed in this commit) and fill with
    real GBP reviews — or wire a live widget (Elfsight/EmbedSocial).
-2. **Contact form** — set `FORM_ENDPOINT` in `src/components/ContactForm.tsx`.
-   ⚠️ Client wants submissions delivered **to her phone by SMS/text, not email**
-   (emails get lost in spam) — pick a handler with SMS notifications
-   (e.g. Formspree/Zapier → Twilio). Until then the form shows a demo success
-   state and sends nothing.
+2. **Contact form & chat** — DONE: the contact form is a LeadConnector (GHL)
+   embed (`src/components/ContactForm.tsx`, form ID `Hkp1qNjcnBasg0990Le0`)
+   and the LeadConnector chat widget loads site-wide from `src/app/layout.tsx`
+   (widget ID `6a68f6fd702ca026d57bd00b`). Configure SMS notifications to
+   Victoria's phone inside the LeadConnector account (client requirement:
+   text, not email). The floating mobile Call Now button sits bottom-LEFT so
+   it doesn't collide with the chat bubble bottom-right.
 3. **GA4** — replace `G-XXXXXXXXXX` in `src/app/layout.tsx` with the real
    Measurement ID (or remove the tag).
 4. **Photos** — site now uses Unsplash stock (hotlinked from the Unsplash

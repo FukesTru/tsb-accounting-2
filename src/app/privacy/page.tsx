@@ -70,9 +70,11 @@ export default function PrivacyPage() {
           <div>
             <h2 className="font-display text-2xl font-bold text-navy-900">Third-party services</h2>
             <p className="mt-3 leading-relaxed">
-              This site may embed services from third parties — such as Google Maps and Google
-              Analytics — which may set their own cookies and collect data under their own privacy
-              policies. Links to external sites (including our Google Business Profile and Facebook
+              This site may embed services from third parties — such as Google Maps, Google
+              Analytics, and LeadConnector (which powers our contact form and chat widget) — which
+              may set their own cookies and collect data under their own privacy policies.
+              Information submitted through the contact form or chat is processed by LeadConnector
+              on our behalf. Links to external sites (including our Google Business Profile and Facebook
               page) are governed by those platforms&apos; policies.
             </p>
           </div>
