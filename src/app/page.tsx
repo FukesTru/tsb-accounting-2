@@ -93,16 +93,6 @@ export default function HomePage() {
               Call {site.phone}
             </a>
           </div>
-          <div
-            className="mt-16 flex justify-center"
-            data-aos
-            data-aos-delay="500"
-            aria-hidden="true"
-          >
-            <span className="flex h-10 w-6 items-start justify-center rounded-full border border-white/25 p-1.5">
-              <span className="h-2 w-1 animate-bounce rounded-full bg-gold-400" />
-            </span>
-          </div>
         </div>
       </section>
 

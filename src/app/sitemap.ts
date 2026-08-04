@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     entry("/", 1.0, "weekly"),
+    entry("/construction-accounting", 0.95, "weekly"),
     entry("/about", 0.8),
     entry("/contact", 0.9),
     ...serviceCategories.map((c) => entry(`/services/${c.slug}`, 0.9)),

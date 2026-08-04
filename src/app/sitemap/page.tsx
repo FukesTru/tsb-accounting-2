@@ -34,6 +34,11 @@ export default function HtmlSitemapPage() {
             </h2>
             <ul className="space-y-2.5">
               <li><Link href="/" className={linkClass}>Home</Link></li>
+              <li>
+                <Link href="/construction-accounting" className={`${linkClass} font-semibold`}>
+                  Construction Accounting
+                </Link>
+              </li>
               <li><Link href="/about" className={linkClass}>About Us</Link></li>
               <li><Link href="/contact" className={linkClass}>Contact</Link></li>
               <li><Link href="/privacy" className={linkClass}>Privacy Policy</Link></li>

@@ -1,16 +1,15 @@
 /**
- * Stock photography — hotlinked from the Unsplash CDN (free to use under
- * the Unsplash License, including commercially, no attribution required).
+ * Site imagery.
  *
- * ⚠️ These are professional stand-ins chosen to fit each slot. Swap any URL
- * for the client's real photos as they become available (especially the
- * story/About photo, which should become Victoria's headshot). The SVG
- * placeholders remain in /public/images as offline fallbacks.
+ * Victoria's headshot is the client's real photo (supplied by the client)
+ * and is used everywhere a photo of her appears. Service-card imagery is
+ * Unsplash stock (free license) — see src/lib/services.ts.
  */
 
-/** Homepage "Our Story" + About page — professional portrait stand-in
- *  until Victoria's photo is ready (700×800 portrait crop). */
+/** Victoria Harris-Pelletier — official headshot (client-supplied). */
 export const storyImage = {
-  src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&h=800&q=80",
-  alt: "Professional businesswoman at work — stand-in photo until Victoria Harris-Pelletier's portrait is ready",
+  src: "/images/victoria-harris-pelletier.jpg",
+  alt: "Victoria Harris-Pelletier, licensed CPA and owner of TSB Accounting Solutions in Lowell, Arkansas",
+  width: 900,
+  height: 1125,
 };

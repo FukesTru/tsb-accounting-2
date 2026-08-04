@@ -82,9 +82,10 @@ export default function Header() {
                           <li key={sub.name}>
                             <Link
                               href={
-                                sub.slug
+                                sub.href ??
+                                (sub.slug
                                   ? `/services/${cat.slug}/${sub.slug}`
-                                  : `/services/${cat.slug}`
+                                  : `/services/${cat.slug}`)
                               }
                               className="block text-sm text-white/75 transition-colors hover:text-gold-300"
                             >
@@ -99,6 +100,13 @@ export default function Header() {
               </div>
             )}
           </div>
+
+          <Link
+            href="/construction-accounting"
+            className="px-4 py-2 text-sm font-medium text-white transition-colors hover:text-gold-300"
+          >
+            Construction
+          </Link>
 
           <Link
             href="/about"
@@ -205,11 +213,11 @@ export default function Header() {
                   {cat.shortName}
                 </Link>
                 {cat.subServices
-                  .filter((s) => s.slug)
+                  .filter((s) => s.slug || s.href)
                   .map((sub) => (
                     <Link
                       key={sub.name}
-                      href={`/services/${cat.slug}/${sub.slug}`}
+                      href={sub.href ?? `/services/${cat.slug}/${sub.slug}`}
                       className="block py-1.5 pl-4 text-sm text-white/70"
                     >
                       {sub.name}
@@ -218,6 +226,13 @@ export default function Header() {
               </div>
             ))}
           </MobileSection>
+
+          <Link
+            href="/construction-accounting"
+            className="block border-b border-white/10 py-3.5 font-medium text-white"
+          >
+            Construction
+          </Link>
 
           <Link href="/about" className="block border-b border-white/10 py-3.5 font-medium text-white">
             About

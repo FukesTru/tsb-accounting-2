@@ -62,14 +62,47 @@ export default async function ServiceCategoryPage({
         subtitle={cat.cardDescription}
       />
 
-      {/* Intro */}
+      {/* Intro + What We Handle sidebar */}
       <section className="bg-white py-20">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8" data-aos>
-          {cat.intro.map((p, i) => (
-            <p key={i} className={`leading-relaxed text-navy-900/80 ${i > 0 ? "mt-5" : ""}`}>
-              {p}
-            </p>
-          ))}
+        <div className="mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[1.3fr_1fr] lg:px-8">
+          <div data-aos="fade-right">
+            {cat.intro.map((p, i) => (
+              <p key={i} className={`leading-relaxed text-navy-900/80 ${i > 0 ? "mt-5" : ""}`}>
+                {p}
+              </p>
+            ))}
+          </div>
+          <aside
+            id="what-we-handle"
+            className="relative h-fit scroll-mt-28 overflow-hidden rounded-lg border border-navy-900/10 bg-cream-50 p-8"
+            data-aos="fade-left"
+            data-aos-delay="150"
+          >
+            <span
+              className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gold-500/10 blur-2xl"
+              aria-hidden="true"
+            />
+            <h2 className="font-display text-xl font-bold text-navy-900">
+              What we <span className="accent-italic">handle</span>
+            </h2>
+            <ul className="mt-6 space-y-3.5">
+              {cat.handle.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm text-navy-900/80">
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-gold-500"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 10.5l4 4 8-9" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </aside>
         </div>
       </section>
 
@@ -84,9 +117,11 @@ export default async function ServiceCategoryPage({
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {cat.subServices.map((sub, i) => {
-              const href = sub.slug
-                ? `/services/${cat.slug}/${sub.slug}`
-                : `/services/${cat.slug}#what-we-handle`;
+              const href =
+                sub.href ??
+                (sub.slug
+                  ? `/services/${cat.slug}/${sub.slug}`
+                  : `/services/${cat.slug}#what-we-handle`);
               return (
                 <Link
                   key={sub.name}
@@ -104,7 +139,7 @@ export default async function ServiceCategoryPage({
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-navy-900/70">{sub.blurb}</p>
                   <span className="mt-4 inline-block text-xs font-bold uppercase tracking-wider text-teal-600">
-                    {sub.slug ? "Learn More" : "Included in this service"}{" "}
+                    {sub.slug || sub.href ? "Learn More" : "Included in this service"}{" "}
                     <span className="arrow">→</span>
                   </span>
                 </Link>
@@ -114,33 +149,10 @@ export default async function ServiceCategoryPage({
         </div>
       </section>
 
-      {/* What We Handle */}
-      <section id="what-we-handle" className="bg-white py-20 scroll-mt-24">
-        <div className="mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+      {/* Why work with us */}
+      <section className="bg-white py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div data-aos="fade-right">
-            <p className="eyebrow">What We Handle</p>
-            <h2 className="mt-3 font-display text-3xl font-bold text-navy-900">
-              Everything <span className="accent-italic">covered</span>
-            </h2>
-            <ul className="mt-8 space-y-4">
-              {cat.handle.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-navy-900/80">
-                  <svg
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    className="mt-0.5 h-5 w-5 shrink-0 text-gold-500"
-                    aria-hidden="true"
-                  >
-                    <path d="M4 10.5l4 4 8-9" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div data-aos="fade-left" data-aos-delay="150">
             <span className="img-zoom block rounded-lg shadow-xl">
               <img
                 src={cat.image}
@@ -151,11 +163,19 @@ export default async function ServiceCategoryPage({
                 className="aspect-[8/5] w-full rounded-lg object-cover"
               />
             </span>
+          </div>
+          <div data-aos="fade-left" data-aos-delay="150">
+            <p className="eyebrow">Why Us</p>
+            <h2 className="mt-3 font-display text-3xl font-bold text-navy-900">
+              Why work with a <span className="accent-italic">dedicated</span> accountant?
+            </h2>
+            <p className="mt-5 leading-relaxed text-navy-900/80">{cat.why}</p>
             <div className="mt-8 rounded-lg border-l-4 border-gold-500 bg-cream-50 p-6">
-              <h3 className="font-display text-lg font-semibold text-navy-900">
-                Why work with a dedicated accountant?
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy-900/75">{cat.why}</p>
+              <p className="text-sm leading-relaxed text-navy-900/80">
+                Every engagement starts with a free discovery call and a flat,
+                scoped quote — so you know exactly what you&apos;re getting and
+                what it costs before any work begins.
+              </p>
             </div>
           </div>
         </div>

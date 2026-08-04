@@ -8,6 +8,8 @@ export type SubServiceLink = {
   name: string;
   slug: string | null;
   blurb: string;
+  /** Absolute path override — used for services that live outside /services */
+  href?: string;
 };
 
 export type SubServicePage = {
@@ -95,7 +97,8 @@ export const serviceCategories: ServiceCategory[] = [
     subServices: [
       {
         name: "Construction Accounting",
-        slug: "construction-accounting",
+        slug: null,
+        href: "/construction-accounting",
         blurb: "Job costing, WIP reporting & real-time job profitability.",
       },
       {
@@ -125,75 +128,6 @@ export const serviceCategories: ServiceCategory[] = [
       },
     ],
     pages: [
-      {
-        slug: "construction-accounting",
-        name: "Construction Accounting",
-        metaTitle: "Construction Accounting in Northwest Arkansas",
-        metaDescription:
-          "Job costing, WIP reporting & real-time job profitability for NWA contractors. Construction accounting from a CPA who grew up in the business. Lowell, AR.",
-        heroKeyword: "Construction Accounting",
-        intro: [
-          "Construction is where TSB Accounting Solutions goes deepest. Victoria grew up around the construction business, and she's seen the damage done when contractors wait nine to twelve months to find out which jobs were profitable and which weren't — especially while bidding new projects one to two years out. Our construction accounting service exists to end that guessing game: real-time job costing, work-in-progress reporting, and financials built the way construction actually works.",
-          "We set up and maintain job-level books so you know where every project stands while you can still do something about it — not after closeout. That means accurate job costing for labor, materials, subs, and overhead; WIP schedules your bonding company and bank will respect; and clean monthly financials that show margin by job, not just a company-wide blur. Whether you're a general contractor, a specialty sub, or a builder anywhere in Northwest Arkansas (or beyond — this works fully virtually), you get numbers you can bid from with confidence.",
-        ],
-        included: [
-          "Job costing setup and maintenance (labor, materials, subs, overhead)",
-          "Work-in-progress (WIP) schedules and over/under-billing analysis",
-          "Real-time job profitability reporting",
-          "Progress billing and retainage tracking",
-          "Bonding- and bank-ready construction financials",
-          "Bid support: historical cost data you can actually price from",
-        ],
-        process: [
-          {
-            title: "Job-Level Review",
-            description:
-              "We assess how costs hit your books today and rebuild the structure around jobs, phases, and cost codes.",
-          },
-          {
-            title: "Set Up Real-Time Costing",
-            description:
-              "Job costing, WIP schedules, and margin reports configured in your accounting system — updated monthly, not annually.",
-          },
-          {
-            title: "Report & Advise",
-            description:
-              "Every month you see profit by job while it's in progress, with straight advice on bids, billing, and overruns.",
-          },
-        ],
-        faqs: [
-          {
-            question: "Why do construction companies need a specialized accountant?",
-            answer:
-              "Because construction finances don't behave like other businesses': revenue is earned over long projects, costs arrive unevenly, and over/under-billing can make a company look profitable while it bleeds cash. Standard bookkeeping hides all of that. Job costing and WIP reporting expose it — while there's still time to act.",
-          },
-          {
-            question: "What is WIP reporting and why does my bonding company want it?",
-            answer:
-              "A work-in-progress schedule shows each open job's contract value, costs to date, billings to date, and estimated profit. Sureties and banks rely on it to judge whether your backlog is healthy. A clean, current WIP schedule is often the difference between getting bonded for the next job and getting passed over.",
-          },
-          {
-            question: "I only find out how a job did months after it closes. Can you fix that?",
-            answer:
-              "Yes — that's the core of this service. With proper job costing, you see labor, materials, subcontractor, and overhead costs against each job every month. You'll know a job is going sideways in week six, not month twelve.",
-          },
-          {
-            question: "Can you help me bid more accurately?",
-            answer:
-              "Accurate historical job costs are the best bid data there is. Once your books track true cost by job and phase, you can price future work from real numbers instead of gut feel — critical when you're committing to prices one to two years out.",
-          },
-          {
-            question: "Do you work with subcontractors and specialty trades, or just GCs?",
-            answer:
-              "Both. Job costing, retainage tracking, and progress billing matter just as much for electrical, plumbing, roofing, concrete, and other specialty contractors as they do for general contractors and builders.",
-          },
-          {
-            question: "Do you serve contractors outside Northwest Arkansas?",
-            answer:
-              "Yes. NWA's construction boom keeps us busy locally, but construction accounting works fully virtually — we serve contractors across the U.S. through cloud accounting systems.",
-          },
-        ],
-      },
       {
         slug: "financial-statements",
         name: "Financial Statement Preparation",

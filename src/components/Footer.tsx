@@ -57,6 +57,14 @@ export default function Footer() {
           <nav aria-label="Footer services">
             <h3 className="mb-4 font-display text-base font-semibold text-white">Services</h3>
             <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link
+                  href="/construction-accounting"
+                  className="font-semibold text-gold-400/90 transition-colors hover:text-gold-400"
+                >
+                  Construction Accounting
+                </Link>
+              </li>
               {serviceCategories.map((cat) => (
                 <li key={cat.slug}>
                   <Link href={`/services/${cat.slug}`} className="transition-colors hover:text-gold-400">
