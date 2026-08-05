@@ -30,6 +30,24 @@ npm start       # serve production build
 | Service areas | `/areas/lowell-ar`, `/areas/northwest-arkansas`, `/areas/bentonville-ar`, `/areas/rogers-ar` |
 | Technical | `/sitemap.xml`, `/robots.txt` (auto-generated) |
 
+## Performance notes
+
+Tuned against a PageSpeed Insights mobile run (LCP 6.9 s → optimized):
+
+- **Fonts** are self-hosted via `next/font` — no render-blocking request to
+  `fonts.googleapis.com` and `font-display: swap` is automatic.
+- **Above-the-fold hero reveals** use `data-aos-load` (pure CSS, fires at
+  first paint) instead of the JS IntersectionObserver, so the LCP element
+  isn't held at `opacity: 0` waiting for hydration. Below-the-fold sections
+  still use `data-aos` + the observer.
+- **Images**: Unsplash cards ship a `srcset`/`sizes` (see `unsplashSrcSet()`
+  in `src/lib/images.ts`); Victoria's headshot is served as WebP via
+  `<picture>` with a JPEG fallback.
+- **Third-party**: the chat widget loads `lazyOnload`; GA4 only loads when
+  `NEXT_PUBLIC_GA_ID` is set.
+- `overflow-x: clip` on `html`/`body` stops the fade-left/right reveal
+  transforms from creating horizontal scroll on mobile.
+
 ## Where content lives
 
 All copy and business data is centralized — edit the data, and every page,
@@ -54,8 +72,10 @@ menu, footer, and schema block updates:
    Victoria's phone inside the LeadConnector account (client requirement:
    text, not email). The floating mobile Call Now button sits bottom-LEFT so
    it doesn't collide with the chat bubble bottom-right.
-3. **GA4** — replace `G-XXXXXXXXXX` in `src/app/layout.tsx` with the real
-   Measurement ID (or remove the tag).
+3. **GA4** — set the `NEXT_PUBLIC_GA_ID` environment variable to the client's
+   real Measurement ID (e.g. `G-ABC123XYZ`) in the hosting dashboard. No
+   analytics script loads while it's unset, which keeps ~142 KiB of gtag.js
+   off the page.
 4. **Photos** — Victoria's real headshot (client-supplied) is in
    `public/images/victoria-harris-pelletier.jpg` and used on the homepage and
    About page via `src/lib/images.ts`. Service-card imagery is Unsplash stock

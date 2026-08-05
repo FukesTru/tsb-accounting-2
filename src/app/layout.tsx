@@ -1,11 +1,37 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingCall from "@/components/FloatingCall";
 import AosInit from "@/components/AosInit";
 import { site } from "@/lib/site";
+
+/**
+ * Fonts are self-hosted by next/font (no render-blocking request to
+ * fonts.googleapis.com, and font-display: swap is applied automatically).
+ * Same typefaces as before — Playfair Display for headings, Inter for body.
+ */
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  style: ["normal", "italic"],
+  variable: "--font-display-family",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans-family",
+});
+
+/**
+ * GA4: set NEXT_PUBLIC_GA_ID to the client's real Measurement ID
+ * (e.g. G-ABC123XYZ) to enable analytics. Left unset, no tag loads —
+ * which avoids shipping ~142 KiB of gtag.js for a placeholder ID.
+ */
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -27,45 +53,36 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        {/* Display + body fonts (design-system defaults; swap if client supplies brand fonts) */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-        {/*
-          GA4 PLACEHOLDER — replace G-XXXXXXXXXX with the client's real
-          Measurement ID before launch, or remove if not using GA4.
-        */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXXX');`,
-          }}
-        />
-      </head>
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body>
         <AosInit />
         <Header />
         <main>{children}</main>
         <Footer />
         <FloatingCall />
-        {/* LeadConnector chat widget — site-wide */}
+
+        {/* LeadConnector chat widget — site-wide, loaded off the critical path */}
         <Script
           src="https://widgets.leadconnectorhq.com/loader.js"
           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
           data-widget-id="6a68f6fd702ca026d57bd00b"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
+
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );

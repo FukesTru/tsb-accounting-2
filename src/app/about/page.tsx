@@ -46,14 +46,18 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-7xl items-start gap-14 px-4 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:px-8">
           <div className="relative" data-aos="fade-right">
             <span className="img-zoom block rounded-lg">
-              <img
-                src={storyImage.src}
-                alt={storyImage.alt}
-                loading="lazy"
-                width={storyImage.width}
-                height={storyImage.height}
-                className={`aspect-[7/8] w-full rounded-lg object-cover shadow-2xl ${storyImage.objectPosition}`}
-              />
+              <picture>
+                <source srcSet={storyImage.webp} type="image/webp" />
+                <img
+                  src={storyImage.src}
+                  alt={storyImage.alt}
+                  loading="lazy"
+                  width={storyImage.width}
+                  height={storyImage.height}
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className={`aspect-[7/8] w-full rounded-lg object-cover shadow-2xl ${storyImage.objectPosition}`}
+                />
+              </picture>
             </span>
             <div className="absolute -bottom-6 -right-4 rounded-lg bg-gold-500 px-7 py-5 text-center shadow-xl sm:-right-6">
               <span className="block font-display text-3xl font-bold text-navy-950">

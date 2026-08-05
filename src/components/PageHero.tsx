@@ -28,17 +28,25 @@ export default function PageHero({
         <Breadcrumbs items={crumbs} />
         <h1
           className="max-w-4xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl"
-          data-aos
+          data-aos-load
         >
           {titlePre && <>{titlePre} </>}
           <span className="accent-underline">{keyword}</span>
           {titlePost && <> {titlePost}</>}
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75" data-aos data-aos-delay="120">
+        <p
+          className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75"
+          data-aos-load
+          style={{ "--aos-delay": "120ms" } as React.CSSProperties}
+        >
           {subtitle}
         </p>
         {showCtas && (
-          <div className="mt-9 flex flex-wrap gap-4" data-aos data-aos-delay="240">
+          <div
+            className="mt-9 flex flex-wrap gap-4"
+            data-aos-load
+            style={{ "--aos-delay": "240ms" } as React.CSSProperties}
+          >
             <Link href="/contact" className="btn-primary">
               Free Consultation
             </Link>

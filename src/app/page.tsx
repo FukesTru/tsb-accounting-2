@@ -10,7 +10,7 @@ import { localBusinessSchema } from "@/lib/schema";
 import { site, fullAddress } from "@/lib/site";
 import { serviceCategories } from "@/lib/services";
 import { serviceAreas } from "@/lib/areas";
-import { storyImage } from "@/lib/images";
+import { storyImage, unsplashSrcSet } from "@/lib/images";
 import Marquee from "@/components/Marquee";
 import StatsBand from "@/components/StatsBand";
 
@@ -66,26 +66,30 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <p
             className="mx-auto mb-7 inline-block rounded-full border border-white/15 bg-white/5 px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-gold-300"
-            data-aos
+            data-aos-load
           >
             Licensed CPA · Lowell, AR
           </p>
           <h1
             className="mx-auto max-w-4xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
-            data-aos
-            data-aos-delay="100"
+            data-aos-load
+            style={{ "--aos-delay": "100ms" } as React.CSSProperties}
           >
             Accounting &amp; Fractional CFO Services in{" "}
             <span className="accent-underline">Northwest Arkansas</span>
           </h1>
           <p
             className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-white/75"
-            data-aos
-            data-aos-delay="200"
+            data-aos-load
+            style={{ "--aos-delay": "200ms" } as React.CSSProperties}
           >
             {site.tagline}
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4" data-aos data-aos-delay="300">
+          <div
+            className="mt-10 flex flex-wrap justify-center gap-4"
+            data-aos-load
+            style={{ "--aos-delay": "300ms" } as React.CSSProperties}
+          >
             <Link href="/contact" className="btn-primary">
               Free Consultation
             </Link>
@@ -125,6 +129,8 @@ export default function HomePage() {
                   <span className="img-zoom block">
                     <img
                       src={cat.image}
+                      srcSet={unsplashSrcSet(cat.image)}
+                      sizes="(min-width: 768px) 33vw, 100vw"
                       alt={cat.imageAlt}
                       loading="lazy"
                       width="800"
@@ -202,14 +208,18 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="relative" data-aos="fade-right">
             <span className="img-zoom block rounded-lg">
-            <img
-              src={storyImage.src}
-              alt={storyImage.alt}
-              loading="lazy"
-              width={storyImage.width}
-              height={storyImage.height}
-              className={`aspect-[7/8] w-full rounded-lg object-cover shadow-2xl ${storyImage.objectPosition}`}
-            />
+              <picture>
+                <source srcSet={storyImage.webp} type="image/webp" />
+                <img
+                  src={storyImage.src}
+                  alt={storyImage.alt}
+                  loading="lazy"
+                  width={storyImage.width}
+                  height={storyImage.height}
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className={`aspect-[7/8] w-full rounded-lg object-cover shadow-2xl ${storyImage.objectPosition}`}
+                />
+              </picture>
             </span>
             {/* Floating stat badge — 20+ years, name underneath (per client edits) */}
             <div className="absolute -bottom-6 -right-4 rounded-lg bg-gold-500 px-7 py-5 text-center shadow-xl sm:-right-6">

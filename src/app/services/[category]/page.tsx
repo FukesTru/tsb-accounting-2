@@ -9,6 +9,7 @@ import JsonLd from "@/components/JsonLd";
 import { serviceSchema } from "@/lib/schema";
 import { serviceCategories, getCategory } from "@/lib/services";
 import { serviceAreas } from "@/lib/areas";
+import { unsplashSrcSet } from "@/lib/images";
 
 type Params = { category: string };
 
@@ -156,6 +157,8 @@ export default async function ServiceCategoryPage({
             <span className="img-zoom block rounded-lg shadow-xl">
               <img
                 src={cat.image}
+                srcSet={unsplashSrcSet(cat.image)}
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 alt={cat.imageAlt}
                 loading="lazy"
                 width="800"
