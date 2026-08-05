@@ -50,9 +50,9 @@ export default function AboutPage() {
                 src={storyImage.src}
                 alt={storyImage.alt}
                 loading="lazy"
-                width="700"
-                height="800"
-                className="aspect-[7/8] w-full rounded-lg object-cover shadow-2xl"
+                width={storyImage.width}
+                height={storyImage.height}
+                className={`aspect-[7/8] w-full rounded-lg object-cover shadow-2xl ${storyImage.objectPosition}`}
               />
             </span>
             <div className="absolute -bottom-6 -right-4 rounded-lg bg-gold-500 px-7 py-5 text-center shadow-xl sm:-right-6">
