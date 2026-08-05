@@ -16,7 +16,7 @@ export const site = {
   phoneHref: "tel:+14796331206",
   /** WhatsApp contact option (client request) — same business/cell number */
   whatsappHref: "https://wa.me/14796331206",
-  email: "victoria@tsbaccountingsolutionsllc.com",
+  email: "info@tsbaccountingsolutionsllc.com",
   address: {
     street: "1621 Harold King Ln",
     city: "Lowell",
